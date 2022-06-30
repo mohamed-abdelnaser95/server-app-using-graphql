@@ -1,0 +1,99 @@
+sequelize init to initalize sequelize files config, index
+
+seqelize db:migrate => this will make the table columns
+sequelize db:migrate:undo this will cancel the last migration
+sequelize db:migrate:undo:all this will cancel all migration
+
+// graphql interface query and mutation
+
+#Get all users
+# query{
+#     getUsers {
+#             id
+#             strName
+#             dtmDOB
+#             blnIsActive
+#             strEmail
+#             strPassword
+#     }
+# }
+
+#find user by id
+# query{
+#     getUserById(id: 1) {
+#             strName
+#             dtmDOB
+#             blnIsActive
+#             strEmail
+#             strPassword
+#     }
+# }
+
+# find users by email
+# query{
+#     getUsersByEmail(strEmail: "@Gmail.com") {
+#             strName
+#             strEmail
+#             blnIsActive
+#     }
+# }
+
+# user log in
+# query {
+#     loginUser(strEmail : "mike@gmail.com", strPassword: "dsas") {
+#             strName
+#             dtmDOB
+#             blnIsActive
+#             strEmail
+#             strPassword
+#     }
+# }
+
+# mutation add user
+# mutation {
+#     addUser(
+#         strName: "Sara"
+#         strEmail: "sara@gmail.com"
+#         strPassword: "12345678"
+#         dtmDOB: "1995-07-02"
+#         blnIsActive: false
+#     ){
+#         strEmail
+#         strName
+#     }
+# }
+
+# mutation delete user
+# mutation {
+#     deleteUser(id: 2)
+# }
+
+# mutation update user
+# mutation{
+#   updateUser(
+#     id: 1
+#     strName: "ali Kun"
+#     strPassword: "password11"
+#     dtmDOB: "1995-07-02"
+#     strEmail:"vovo@Gmail.com"
+#   ){
+#     strName
+#     strPassword
+#     dtmDOB
+#     strEmail
+#   }
+# }
+
+# mutation update user status
+mutation{
+  updateUserStatus(
+    strEmail: "vovo@gmail.com"
+    blnIsActive: true
+  ){
+    strName
+    strPassword
+    dtmDOB
+    strEmail
+    blnIsActive
+  }
+}
